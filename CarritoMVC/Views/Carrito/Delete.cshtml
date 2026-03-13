@@ -1,0 +1,43 @@
+﻿@model CarritoMVC.Models.Producto
+
+@{
+    ViewData["Title"] = "Eliminar Producto";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow-sm border-danger">
+                <div class="card-header bg-danger text-white fw-bold">
+                    <i class="bi bi-exclamation-triangle me-1"></i> Confirmar eliminación
+                </div>
+                <div class="card-body">
+                    <p class="mb-3">¿Estás seguro de que deseas eliminar este producto?</p>
+
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Nombre</th>
+                            <td>@Model.Nombre</td>
+                        </tr>
+                        <tr>
+                            <th>Precio</th>
+                            <td>@Model.Precio.ToString("C")</td>
+                        </tr>
+                    </table>
+
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-danger w-100">
+                                <i class="bi bi-trash me-1"></i> Sí, eliminar
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary w-100">
+                                Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
